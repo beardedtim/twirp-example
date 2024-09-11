@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+// A Service is a collection of RPC methods
+service AccountService {
+    // RPC methods are the functions that we can call
+    rpc CreateAccount(AccountCreateRequestEvent) returns (AccountCreatedEvent) {
+        // The google.api.http annotation tells our tooling that we want to
+        // be able to make a POST request to /v1/account and that the body
+        // will be some JSON in the shape of AccountCreateRequestEvent
+        option (google.api.http) = {
+            post: "/v1/account"
+            body: "*"
+        };
+    }
+}
+
+// messages are similar to structs in Go or
+// interfaces/types in Typescript
+//
+// They allow us to define the shape of the data
+// that we will be sending and receiving and then
+// the compiler ensures that we can encode/decode
+// the data correctly
+message AccountCreateRequestEvent {
+    string name = 1; // <type> <name> = <index>;
+    string email = 2;
+}
+
+message AccountCreatedEvent {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+}
