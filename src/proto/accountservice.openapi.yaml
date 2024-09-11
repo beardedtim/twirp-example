@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: AccountService
+  version: 1.0.0
+  description: A Service is a collection of RPC methods
+paths:
+  /v1/account:
+    post:
+      summary: RPC methods are the functions that we can call
+      operationId: AccountService_CreateAccount
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccountCreateRequestEvent"
+      parameters: []
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountCreatedEvent"
+components:
+  schemas:
+    AccountCreateRequestEvent:
+      properties:
+        name:
+          type: string
+          description: <type> <name> = <index>;
+        email:
+          type: string
+          description: ""
+      description: |-
+        messages are similar to structs in Go or
+         interfaces/types in Typescript
+
+         They allow us to define the shape of the data
+         that we will be sending and receiving and then
+         the compiler ensures that we can encode/decode
+         the data correctly
+    AccountCreatedEvent:
+      properties:
+        id:
+          type: string
+          description: ""
+        name:
+          type: string
+          description: ""
+        email:
+          type: string
+          description: ""
+      description: ""

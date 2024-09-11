@@ -17,6 +17,9 @@ dependencies:
   '@protobuf-ts/twirp-transport':
     specifier: ^2.9.4
     version: 2.9.4
+  path-to-regexp:
+    specifier: ^6.2.2
+    version: 6.2.2
   twirp-ts:
     specifier: ^2.5.0
     version: 2.5.0(@protobuf-ts/plugin@2.9.4)

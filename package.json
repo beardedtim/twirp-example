@@ -20,6 +20,7 @@
     "@protobuf-ts/runtime": "^2.9.4",
     "@protobuf-ts/runtime-rpc": "^2.9.4",
     "@protobuf-ts/twirp-transport": "^2.9.4",
+    "path-to-regexp": "^6.2.2",
     "twirp-ts": "^2.5.0"
   }
 }
